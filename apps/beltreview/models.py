@@ -54,7 +54,7 @@ class Login(models.Manager):
 class Users(models.Model):
     name = models.CharField(max_length=60)
     alias = models.CharField(max_length=30)
-    email = models.CharField(max_length=60)
+    email = models.CharField(max_length=100)
     password = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

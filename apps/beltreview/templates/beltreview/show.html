@@ -24,13 +24,23 @@
       </nav>
     <h1>Welcome {{Users.alias}}!</h1>
     <h4>Recent Book Reviews:</h4>
+        {%for review in reviews%}
+        <div id= "newestrev">
+        <a href= "books/{{review.book.id}}">{{review.book.title}}</a>
 
+        <img src= "../../static/beltreview/img/stars{{review.rating}}.jpg">
+          {{review.review}}
+          <p>Posted on {{review.created_at}}</p>
+        </div>
+        {%endfor%}
+        <div id= "othgroup">
       <h3>Other books with Reviews</h3>
       <div id= "otherbooks">
         {% for book in books %}
         <a href= "/books/{{book.id}}"><p>{{book.title}}</p></a>
         {%endfor%}
       </div>
+    </div>
     </div>
   </body>
 </html>

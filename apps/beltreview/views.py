@@ -46,12 +46,14 @@ def showuser(request, id):
     user = Users.objects.get(id=id)
     context= {
         'user' : Users.objects.get(id=request.session['user']),
-        'books': Reviews.objects.filter(user=user)
+        'books': Reviews.objects.filter(user=user),
+        'totes' : Reviews.objects.filter(user=user).count()
         }
     return render(request, "beltreview/showuser.html", context)
 
 def show(request):
     context= {
+        'reviews' : Reviews.objects.all().order_by('created_at').reverse()[:3],
         'books' : Books.objects.all(),
         'Users' : Users.objects.get(id=request.session['user'])
         }

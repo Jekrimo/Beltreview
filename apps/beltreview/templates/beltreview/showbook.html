@@ -60,8 +60,9 @@
 
               {% if reviews %}
               {%for review in reviews%}
+              <div id= "line"></div>
                 <div class= "reviews">
-                  <h4>{{review.rating}} Stars</h4>
+                  <img src= "../../static/beltreview/img/stars{{review.rating}}.jpg">
                     <h4>{{review.user.alias}} syas: {{review.review}}</h4>
                   <h4>Posted on {{review.created_at}}</h4>
                 </div>
