@@ -27,9 +27,8 @@
         {%for review in reviews%}
         <div id= "newestrev">
         <a href= "books/{{review.book.id}}">{{review.book.title}}</a>
-
         <img src= "../../static/beltreview/img/stars{{review.rating}}.jpg">
-          {{review.review}}
+        <p>{{review.user.alias}} says:  {{review.review}}</p>
           <p>Posted on {{review.created_at}}</p>
         </div>
         {%endfor%}

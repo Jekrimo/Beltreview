@@ -3,7 +3,7 @@ from django.db import models
 import re
 import bcrypt
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
-PASSWORD_REGEX = re.compile(r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$')
+PASSWORD_REGEX = re.compile(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}')
 
 class Createuser(models.Manager):
     def register(self,name, alias, email_address, create_password,):
@@ -29,7 +29,7 @@ class Createuser(models.Manager):
             if len(create_password) < 4:
                 errors.append("Password is too short!")
             if not PASSWORD_REGEX.match(create_password):
-                errors.append("Password is invalid")
+                errors.append("Password is invalid, please try again.")
             if len(create_password) > 8:
                 errors.append("Password is too Long!")
             return (False, errors)
