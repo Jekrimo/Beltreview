@@ -41,7 +41,6 @@ class Login(models.Manager):
         if Users.objects.filter(email=login_email).exists() == False:
             login_errors.append("Sorry, no email found. Please try again.")
             return (False, login_errors)
-
         else:
             user = Users.objects.get(email=login_email)
             password = user.password.encode()

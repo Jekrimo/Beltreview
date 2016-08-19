@@ -1,5 +1,5 @@
 #container{
-  width: 1000px;
+  width: 1200px;
   padding: 25px;
 }
 #createuser input{
@@ -28,4 +28,17 @@
 
 #right{
   margin-left: 100px;
+}
+
+#otherbooks{
+  height: 200px;
+  margin-top: 25px;
+  margin-left: 600px;
+  overflow-y: scroll;
+}
+h3{
+  margin-left: 600px;
+}
+#otherbooks p{
+  margin-left: 80px;
 }

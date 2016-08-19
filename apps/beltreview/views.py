@@ -27,7 +27,28 @@ def createuser(request):
         return redirect("/")
 
 def loginuser(request):
+    if request.method == 'POST':
+        user = Users.login.userlogin(login_email=request.POST['logemail'],login_password=request.POST['logpass'])
+        if user[0] == True:
+            request.session['user'] = user[2].id
+            print user[2].id
+            return redirect('/books')
+        else:
+            context = {
+                'errors' : user[1]
+            }
+            return render(request, "userdashboard/index.html", context)
+    else:
+        return redirect('/register')
     return redirect("/books")
+
+def showuser(request, id):
+    user = Users.objects.get(id=id)
+    context= {
+        'user' : Users.objects.get(id=request.session['user']),
+        'books': Reviews.objects.filter(user=user)
+        }
+    return render(request, "beltreview/showuser.html", context)
 
 def show(request):
     context= {

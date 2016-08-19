@@ -5,6 +5,7 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^user/create$', views.createuser),
     url(r'^user/login$', views.loginuser),
+    url(r'^user/(?P<id>\d+)$', views.showuser),
     url(r'^books$', views.show),
     url(r'^logout$', views.logout),
     url(r'^books/add$', views.addbook),
