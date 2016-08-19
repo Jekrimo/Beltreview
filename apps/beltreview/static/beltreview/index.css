@@ -1,0 +1,31 @@
+#container{
+  width: 1000px;
+  padding: 25px;
+}
+#createuser input{
+  margin-left: 100px;
+}
+#createuser{
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  border: 1px solid black;
+}
+#login input{
+  margin-left: 100px;
+}
+#login{
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  border: 1px solid black;
+}
+
+.btn{
+  margin-left: 150px;
+  background-color: black;
+}
+
+#right{
+  margin-left: 100px;
+}

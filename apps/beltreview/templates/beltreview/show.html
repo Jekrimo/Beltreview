@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Belt Review</title>
+    <link rel= 'stylesheet' type= 'text/css' href= "{% static 'beltreview/index.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id= "container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          </div>
+          <ul class="nav navbar-nav">
+            <li id= "right" class="active"><a href="/books/add">Add Book and Review</a></li>
+            <li id= "right" class="active"><a href="/books">Books</a></li>
+            <li id= "right" class="active"><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+    <h1>Welcome {{Users.alias}}!</h1>
+      <h3>Books</h3>
+
+        {% for book in books %}
+        <a href= "/books/{{book.id}}"><p>{{book.title}}</p></a>
+        {%endfor%}
+    </div>
+  </body>
+</html>

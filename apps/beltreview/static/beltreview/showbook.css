@@ -1,0 +1,26 @@
+#container{
+  width: 1200px;
+  padding: 25px;
+}
+
+.btn{
+  margin-left: 100px;
+  background-color: black;
+}
+
+#right{
+  margin-left: 100px;
+}
+
+#addreview{
+  margin-left: 500px;
+}
+#Reviews{
+  margin-top: -150px;
+}
+#review{
+  margin-left: 50px;
+}
+#rating{
+  margin-left: 50px;
+}

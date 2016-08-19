@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Belt Review</title>
+    <link rel= 'stylesheet' type= 'text/css' href= "{% static 'beltreview/bookadd.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id= "container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          </div>
+          <ul class="nav navbar-nav">
+            <li id= "right" class="active"><a href="/books">Home</a></li>
+            <li id= "right" class="active"><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+    <h1>Add a new book title and review!</h1>
+    <div id= "addbook">
+      <h3>Register</h3>
+      <form class="form-horizontal" action="/books/create" method="post" role="form">
+        {% csrf_token %}
+        <div class="form-group">
+          <label class="control-label col-sm-1" for="title">Book title:</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="title" name= "title" placeholder="Enter title">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-1" for="author">Author:</label>
+          <div class="col-sm-6">
+            <select class="form-control" id="author" name= "author">
+              {% for author in authors%}
+              <option value="{{author.name}}">{{author.name}}</option>
+              {% endfor %}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-1" for="pwd">Or add a new author:</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="newauthor" name= "newauthor" placeholder="Enter newauthor">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-1" for="review">Review:</label>
+          <div class="col-sm-6">
+            <input type="textarea" class="form-control" id="review " name= "review" placeholder="Enter review">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-1" for="rating">Rating:</label>
+          <div class="col-sm-3">
+            <select class="form-control" id="rating" name= "rating">
+              <option value= 1>1 star</option>
+              <option value= 2>2 star</option>
+              <option value= 3>3 star</option>
+              <option value= 4>4 star</option>
+              <option value= 5>5 star</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-4">
+            <button type="submit" class="btn btn-default" >Add Book and Review</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+  </body>
+</html>
